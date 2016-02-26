@@ -14,7 +14,6 @@ use Test\Evaneos\Author;
 $request = new Request(ServerRequestFactory::fromGlobals());
 $jsonApi = new JsonApi($request, new Response(), new ExceptionFactory());
 
-// as array
 $author = $jsonApi->hydrate(new AuthorHydator(), new Author(null, null));
 
 $document = new AuthorDocument(
