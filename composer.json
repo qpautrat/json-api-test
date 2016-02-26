@@ -9,6 +9,7 @@
         "zendframework/zend-diactoros": "^1.1.0",
         "neomerx/json-api": "^0.6.5",
         "tobscure/json-api": "^0.2.1",
-        "nilportugues/json-api": "^2.1"
+        "nilportugues/json-api": "^2.1",
+        "league/fractal": "^0.13.0"
     }
 }
