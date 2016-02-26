@@ -17,8 +17,7 @@ class BookSchema extends SchemaProvider
     {
         return [
             'title' => $book->title,
-            'slug' => $book->slug,
-            'pages' => $book->pages
+            'slug' => $book->slug
         ];
     }
 

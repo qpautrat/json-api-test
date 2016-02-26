@@ -9,7 +9,11 @@ use Test\Neomerx\AuthorSchema;
 use Test\Evaneos\Book;
 use Test\Neomerx\BookSchema;
 use Test\Evaneos\Page;
+use Test\Neomerx\CurrentRequest;
 use Test\Neomerx\PageSchema;
+use Neomerx\JsonApi\Factories\Factory;
+use Symfony\Component\HttpFoundation\Request;
+use Test\Neomerx\ExceptionThrower;
 
 $encoder = Encoder::instance([
     Author::class => AuthorSchema::class,
@@ -17,20 +21,9 @@ $encoder = Encoder::instance([
     Page::class => PageSchema::class,
 ], new EncoderOptions(JSON_PRETTY_PRINT, 'http://example.com/api/v1'));
 
-// Imagine it comes from Query parameters
-$options  = new EncodingParameters(
-    [
-        'book',
-        'book.pages'
-    ], // included
-    [
-        'book' => [
-            'slug',
-            'title',
-            'pages'
-        ]
-    ]  // fields
-);
+$factory = new Factory();
+$parser = $factory->createParametersParser();
+$options = $parser->parse(new CurrentRequest(Request::createFromGlobals()), new ExceptionThrower());
 
 header('Content-type: application/json');
 echo $encoder->encodeData($authors, $options);
