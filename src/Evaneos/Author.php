@@ -8,7 +8,7 @@ class Author
     public $name;
     public $book;
 
-    public function __construct($id, $name, Book $book)
+    public function __construct($id, $name, Book $book = null)
     {
         $this->id = $id;
         $this->name = $name;

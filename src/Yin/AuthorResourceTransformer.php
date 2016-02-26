@@ -92,8 +92,7 @@ class AuthorResourceTransformer extends AbstractResourceTransformer
     public function getAttributes($author)
     {
         return [
-            "name" => function($author) { return $author->name; },
-            'book' => function($author) { return $author->book; }
+            "name" => function($author) { return $author->name; }
         ];
     }
 
