@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Test\\": "src/"
+        }
+    },
+    "require": {
+        "woohoolabs/yin": "^0.10.1",
+        "zendframework/zend-diactoros": "^1.1.0",
+        "neomerx/json-api": "^0.6.5",
+        "tobscure/json-api": "^0.2.1"
+    }
+}
